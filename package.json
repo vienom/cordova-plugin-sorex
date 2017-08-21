@@ -1,0 +1,29 @@
+{
+  "name": "cordova-plugin-sorex",
+  "version": "0.0.1",
+  "description": "Cordova Sorex Plugin",
+  "cordova": {
+    "id": "cordova-plugin-sorex",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vienom/cordova-plugin-sorex.git"
+  },
+  "keywords": [
+    "cordova",
+    "sorex",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "Thomas Plank",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/vienom/cordova-plugin-sorex/issues"
+  },
+  "homepage": "https://github.com/vienom/cordova-plugin-sorex#readme"
+}
