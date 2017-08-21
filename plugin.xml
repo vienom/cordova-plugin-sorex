@@ -30,8 +30,8 @@
     <repo>https://github.com/vienom/cordova-plugin-sorex.git</repo>
     <issue>https://github.com/vienom/cordova-plugin-sorex/issues</issue>
 
-    <js-module src="www/device.js" name="device">
-        <clobbers target="device" />
+    <js-module src="www/sorex.js" name="sorex">
+        <clobbers target="sorex" />
     </js-module>
 
     <!-- android -->
