@@ -37,7 +37,7 @@
     <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="Device" >
+            <feature name="Sorex" >
                 <param name="android-package" value="org.apache.cordova.device.Device"/>
             </feature>
         </config-file>
@@ -48,13 +48,13 @@
     <!-- ios -->
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
-            <feature name="Device">
-                <param name="ios-package" value="CDVDevice"/>
+            <feature name="Sorex">
+                <param name="ios-package" value="CDVSorex"/>
             </feature>
         </config-file>
 
-        <header-file src="src/ios/CDVDevice.h" />
-        <source-file src="src/ios/CDVDevice.m" />
+        <header-file src="src/ios/CDVSorex.h" />
+        <source-file src="src/ios/CDVSorex.m" />
 
 		<framework src="libz.tbd" />
     </platform>

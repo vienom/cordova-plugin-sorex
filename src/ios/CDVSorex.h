@@ -20,11 +20,9 @@
 #import <UIKit/UIKit.h>
 #import <Cordova/CDVPlugin.h>
 
-@interface CDVDevice : CDVPlugin
+@interface CDVSorex : CDVPlugin
 {}
 
-+ (NSString*)cordovaVersion;
-
-- (void)getDeviceInfo:(CDVInvokedUrlCommand*)command;
+- (void)activateVisibility:(CDVInvokedUrlCommand*)command;
 
 @end
