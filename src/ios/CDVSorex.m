@@ -6,9 +6,9 @@
  to you under the Apache License, Version 2.0 (the
  "License"); you may not use this file except in compliance
  with the License.  You may obtain a copy of the License at
-
+ 
  http://www.apache.org/licenses/LICENSE-2.0
-
+ 
  Unless required by applicable law or agreed to in writing,
  software distributed under the License is distributed on an
  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -21,23 +21,28 @@
 #include <sys/sysctl.h>
 #include "TargetConditionals.h"
 
+#import <MultipeerConnectivity/MultipeerConnectivity.h>
+
 #import <Cordova/CDV.h>
 #import "CDVSorex.h"
 
-@implementation UISorex
-
-@interface CDVSorex () {}
-@end
-
 @implementation CDVSorex
-
 
 - (void)activateVisibility:(CDVInvokedUrlCommand*)command
 {
-    /*NSDictionary* deviceProperties = [self deviceProperties];
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:deviceProperties];
-
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];*/
+    /*peer = new MCPeerID(UIKit.UIDevice.CurrentDevice.Name);
+     session = new MCSession(peer);
+     session.Delegate = this;
+     serviceAdvertiser = new MCNearbyServiceAdvertiser(peer, null, "sorex-visible");
+     serviceAdvertiser.Delegate = this;
+     serviceAdvertiser.StartAdvertisingPeer();*/
+    
+    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                          @"OK", @"Init", nil];
+    
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dict];
+    
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 
