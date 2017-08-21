@@ -28,22 +28,69 @@
 
 @implementation CDVSorex
 
+MCSession *_session;
+MCNearbyServiceAdvertiser *serviceAdvertiser;
+
+
 - (void)activateVisibility:(CDVInvokedUrlCommand*)command
 {
-    /*peer = new MCPeerID(UIKit.UIDevice.CurrentDevice.Name);
-     session = new MCSession(peer);
-     session.Delegate = this;
-     serviceAdvertiser = new MCNearbyServiceAdvertiser(peer, null, "sorex-visible");
-     serviceAdvertiser.Delegate = this;
-     serviceAdvertiser.StartAdvertisingPeer();*/
+    NSString *displayName = [[UIDevice currentDevice] name];
+    
+    // OLD: peer = new MCPeerID(UIKit.UIDevice.CurrentDevice.Name);
+    MCPeerID *peerID = [[MCPeerID alloc] initWithDisplayName:displayName];
+    // OLD: session = new MCSession(peer);
+    _session = [[MCSession alloc] initWithPeer:peerID securityIdentity:nil encryptionPreference:MCEncryptionRequired];
+    // OLD: session.Delegate = this;
+    _session.delegate = self;
+    // OLD: serviceAdvertiser = new MCNearbyServiceAdvertiser(peer, null, "sorex-visible");
+    serviceAdvertiser = [[MCNearbyServiceAdvertiser alloc] initWithPeer:peerID discoveryInfo:nil serviceType:@"sorex-visible"];
+    // OLD: serviceAdvertiser.Delegate = this;
+    serviceAdvertiser.delegate = self;
+    // OLD: serviceAdvertiser.StartAdvertisingPeer();
+    serviceAdvertiser.startAdvertisingPeer;
     
     NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:
-                          @"OK", @"Init", nil];
+                          @"OK", @"Init", displayName, @"displayName", nil];
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dict];
     
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
+- (void)advertiser:(MCNearbyServiceAdvertiser *)advertiser didReceiveInvitationFromPeer:(MCPeerID *)peerID withContext:(NSData *)context invitationHandler:(void(^)(BOOL accept, MCSession *session))invitationHandler
+{
+}
+
+- (void)session:(MCSession *)session
+ didReceiveData:(NSData *)data
+       fromPeer:(MCPeerID *)peerID
+{
+}
+
+- (void)session:(MCSession *)session
+didReceiveStream:(NSInputStream *)stream
+       withName:(NSString *)streamName
+       fromPeer:(MCPeerID *)peerID
+{
+}
+
+- (void)session:(MCSession *)session
+didStartReceivingResourceWithName:(NSString *)resourceName fromPeer:(MCPeerID *)peerID withProgress:(NSProgress *)progress
+{
+}
+
+- (void)session:(MCSession *)session
+           peer:(MCPeerID *)peerID
+ didChangeState:(MCSessionState)state
+{
+}
+
+- (void)session:(MCSession *)session
+didFinishReceivingResourceWithName:(NSString *)resourceName
+       fromPeer:(MCPeerID *)peerID
+          atURL:(NSURL *)localURL
+      withError:(NSError *)error
+{
+}
 
 @end
