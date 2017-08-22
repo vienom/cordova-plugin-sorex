@@ -22,7 +22,7 @@
     xmlns:rim="http://www.blackberry.com/ns/widgets"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="cordova-plugin-sorex"
-    version="0.1.0">
+    version="0.1.1">
     <name>Sorex</name>
     <description>Cordova Sorex Plugin</description>
     <license>Apache 2.0</license>
@@ -38,11 +38,11 @@
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="Sorex" >
-                <param name="android-package" value="org.apache.cordova.device.Device"/>
+                <param name="android-package" value="org.apache.cordova.sorex.Sorex"/>
             </feature>
         </config-file>
 
-        <source-file src="src/android/Device.java" target-dir="src/org/apache/cordova/device" />
+        <source-file src="src/android/Sorex.java" target-dir="src/org/apache/cordova/sorex" />
     </platform>
 
     <!-- ios -->

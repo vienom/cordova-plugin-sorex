@@ -16,7 +16,7 @@
        specific language governing permissions and limitations
        under the License.
 */
-package org.apache.cordova.device;
+package org.apache.cordova.sorex;
 
 import java.util.TimeZone;
 
@@ -30,7 +30,7 @@ import org.json.JSONObject;
 
 import android.provider.Settings;
 
-public class Device extends CordovaPlugin {
+public class Sorex extends CordovaPlugin {
     public static final String TAG = "Device";
 
     public static String platform;                            // Device OS
@@ -43,7 +43,7 @@ public class Device extends CordovaPlugin {
     /**
      * Constructor.
      */
-    public Device() {
+    public Sorex() {
     }
 
     /**
@@ -88,87 +88,6 @@ public class Device extends CordovaPlugin {
     // LOCAL METHODS
     //--------------------------------------------------------------------------
 
-    /**
-     * Get the OS name.
-     *
-     * @return
-     */
-    public String getPlatform() {
-        String platform;
-        if (isAmazonDevice()) {
-            platform = AMAZON_PLATFORM;
-        } else {
-            platform = ANDROID_PLATFORM;
-        }
-        return platform;
-    }
-
-    /**
-     * Get the device's Universally Unique Identifier (UUID).
-     *
-     * @return
-     */
-    public String getUuid() {
-        String uuid = Settings.Secure.getString(this.cordova.getActivity().getContentResolver(), android.provider.Settings.Secure.ANDROID_ID);
-        return uuid;
-    }
-
-    public String getModel() {
-        String model = android.os.Build.MODEL;
-        return model;
-    }
-
-    public String getProductName() {
-        String productname = android.os.Build.PRODUCT;
-        return productname;
-    }
-
-    public String getManufacturer() {
-        String manufacturer = android.os.Build.MANUFACTURER;
-        return manufacturer;
-    }
-
-    public String getSerialNumber() {
-        String serial = android.os.Build.SERIAL;
-        return serial;
-    }
-
-    /**
-     * Get the OS version.
-     *
-     * @return
-     */
-    public String getOSVersion() {
-        String osversion = android.os.Build.VERSION.RELEASE;
-        return osversion;
-    }
-
-    public String getSDKVersion() {
-        @SuppressWarnings("deprecation")
-        String sdkversion = android.os.Build.VERSION.SDK;
-        return sdkversion;
-    }
-
-    public String getTimeZoneID() {
-        TimeZone tz = TimeZone.getDefault();
-        return (tz.getID());
-    }
-
-    /**
-     * Function to check if the device is manufactured by Amazon
-     *
-     * @return
-     */
-    public boolean isAmazonDevice() {
-        if (android.os.Build.MANUFACTURER.equals(AMAZON_DEVICE)) {
-            return true;
-        }
-        return false;
-    }
-
-    public boolean isVirtual() {
-	return android.os.Build.FINGERPRINT.contains("generic") ||
-	    android.os.Build.PRODUCT.contains("sdk");
-    }
+    
 
 }
