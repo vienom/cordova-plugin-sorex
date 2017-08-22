@@ -54,8 +54,7 @@ public class Sorex extends CordovaPlugin {
      * @param webView The CordovaWebView Cordova is running in.
      */
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
-        super.initialize(cordova, webView);
-        Device.uuid = getUuid();
+        super.initialize(cordova, webView);        
     }
 
     /**
