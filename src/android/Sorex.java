@@ -54,7 +54,7 @@ public class Sorex extends CordovaPlugin {
      * @param webView The CordovaWebView Cordova is running in.
      */
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
-        super.initialize(cordova, webView);        
+        super.initialize(cordova, webView);
     }
 
     /**
@@ -68,13 +68,7 @@ public class Sorex extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if ("getDeviceInfo".equals(action)) {
             JSONObject r = new JSONObject();
-            r.put("uuid", Device.uuid);
-            r.put("version", this.getOSVersion());
-            r.put("platform", this.getPlatform());
-            r.put("model", this.getModel());
-            r.put("manufacturer", this.getManufacturer());
-	        r.put("isVirtual", this.isVirtual());
-            r.put("serial", this.getSerialNumber());
+            r.put("Init", "OK");
             callbackContext.success(r);
         }
         else {
